@@ -1,25 +1,19 @@
-# NLP-APP Using OOP
-
+# NLP-APPlication Using OOP + Streamlit + Gemini API
 
 ## 📝 Project Description
 
-This project is a **menu-driven NLP (Natural Language Processing) application** developed using **Python and Object-Oriented Programming (OOP)** principles.
+A simple **NLP Application** built using  **Python** , **Object-Oriented Programming (OOP)** principles,  **Google Gemini API** , and **Streamlit** for the user interface.
 
-The application allows users to  **register, log in** , and then perform multiple **language-related AI tasks** such as **sentiment analysis, language translation, and language detection** using  **Google Gemini AI** .
-
-The project is designed in a  **class-based architecture** , ensuring modularity, reusability, and scalability.
-
-Sensitive information like API keys is securely managed using **environment variables** with `python-dotenv`.
-
+This project supports **user authentication** and provides multiple **NLP features** such as sentiment analysis, language translation, and language detection.
 
 ## 🧠 Core Features of the Project
 
 ### 🔐 1. User Authentication System
 
-* User **Registration**
-* User **Login**
-* In-memory database using Python dictionary
-* Prevents duplicate email registration
+* User Registration
+* User Login & Logout
+* Session-based authentication (Streamlit `session_state`)
+* In-memory user database (for demo purposes)
 
 ---
 
@@ -52,7 +46,7 @@ Example:
 
 #### 🌐 b) Language Translation
 
-* Translates user-provided text into **Bangla (Bengali)**
+* Translates user-provided text into (English → Bangla)
 * Uses AI-based contextual translation instead of word-by-word translation
 
 ---
@@ -78,28 +72,27 @@ Example:
 * Prevents hard-coding sensitive credentials
 * Follows industry best practices
 
-
 ## ⚙️ Technologies Used
 
 * **Python 3**
 * **Object-Oriented Programming (OOP)**
+  * * Inheritance
+    * Encapsulation
+    * Method overriding
 * **Google Gemini AI (Generative Model)**
 * **python-dotenv**
 * **Environment Variables (.env)**
-
+* **Streamlit** (UI)
 
 ## 🧱 Project Architecture (High Level)
 
-<pre class="overflow-visible! px-0!" data-start="2639" data-end="2814"><div class="contain-inline-size rounded-2xl corner-superellipse/1.1 relative bg-token-sidebar-surface-primary"><div class="sticky top-[calc(--spacing(9)+var(--header-height))] @w-xl/main:top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-bg-elevated-secondary text-token-text-secondary flex items-center gap-4 rounded-sm px-2 font-sans text-xs"></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre!"><span><span>BaseModel
- └── Handles Gemini model </span><span>configuration</span><span>
-
-AppFeatures
- ├── </span><span>User</span><span> Registration & </span><span>Login</span><span>
- ├── Sentiment Analysis
- ├── </span><span>Language</span><span> Translation
- └── </span><span>Language</span><span> Detection
-</span></span></code></div></div></pre>
-
+    NLP-Application/
+│
+├── app.py                # Streamlit UI + NLP logic
+├── model.py              # BaseModel / NLPModel (Gemini API)
+├── .env                  # API key configuration
+├── requirements.txt      # Project dependencies
+└── README.md             # Project documentation
 
 ## 💻 Requirements
 
@@ -107,9 +100,7 @@ AppFeatures
 * **pip** or **conda**
 * A valid **Google Gemini API key**
 
-
 ## ▶️ How to Run the Project
-
 
 * Create a virtual environment:
 
@@ -135,10 +126,36 @@ AppFeatures
   ```
 * Run the Application:
 
-  ```bash
-  python app.py
-  ```
+```bash
+  streamlit run app.py
+```
 
+### 🔹 UI Logic
+
+* Authentication handled using `st.session_state`
+* Sidebar used for navigation
+* Main content dynamically changes based on login status
+
+---
+
+## 🔐 Authentication Flow
+
+1. User registers with name, email, and password
+2. Credentials stored in session-based database
+3. Login validates user credentials
+4. Logged-in users can access NLP features
+5. Logout clears session state
+
+---
+
+## 🧪 NLP Features Workflow
+
+1. User selects an NLP service
+2. Enters text input
+3. Gemini API processes the request
+4. Output is displayed on UI
+
+---
 
 ## 🎯 Learning Outcomes
 
@@ -147,12 +164,21 @@ AppFeatures
 * Secure API handling using environment variables
 * Building scalable, menu-driven Python applications
 * Integrating **Generative AI models** into real projects
+* Output is displayed on UI
 
+# 📁Images
+
+![1769014344032](image/README/1769014344032.png)
+
+![1769014422891](image/README/1769014422891.png)
+
+![1769014496567](image/README/1769014496567.png)![1769014571408](image/README/1769014571408.png)
+
+![1769014632375](image/README/1769014632375.png)
 
 ## 👨‍💻 Author
 
-**Bijoy Dewanjee**
-
+### **Bijoy Dewanjee**
 
 ### 📜 License
 
